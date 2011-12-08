@@ -27,7 +27,15 @@
 
   <!-- SUGGESTION: Here you could put a new #collection with a binding to
        your newly created controller: Todos.tagsController -->
-
+  
+  
+  <div id='recommendBox'>
+ 	<div>Recommended tags:</div>
+  	{{#collection contentBinding="Todos.labelsController" tagName="ul"}}
+    	<span class='label'>{{content.title}}</span>
+  	{{/collection}}
+  </div>
+  
   {{#view Todos.StatsView id="stats"}}
     {{#view SC.Button classBinding="isActive"
       target="Todos.todosController"
@@ -46,8 +54,7 @@
         valueBinding="content.isDone"}}
   {{/collection}}
   </script>
-
-
+ 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
   <script>!window.jQuery && document.write(unescape('%3Cscript src="js/libs/jquery-1.6.1.min.js"%3E%3C/script%3E'))</script>
   <script src="js/libs/sproutcore-2.0.beta.3.min.js"></script>

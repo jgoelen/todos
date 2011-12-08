@@ -239,3 +239,26 @@ body {
         text-decoration: line-through; }
     body ul li:nth-child(odd) {
       background-color: #F7F7F7; }
+   body .label {
+		padding: 1px 3px 2px;
+		font-size: 9.75px;
+		font-weight: bold;
+		color: white;
+		text-transform: uppercase;
+		white-space: nowrap;
+		background-color: #46A546;
+		-webkit-border-radius: 3px;
+		-moz-border-radius: 3px;
+		border-radius: 3px;
+	}
+	
+	#recommendBox {
+		padding-top: 5px;
+	}
+	
+	#recommendBox li {
+		display: inline;
+		list-style-type: none;
+		padding-right: 5px;
+		background-color: #FFF;
+	}

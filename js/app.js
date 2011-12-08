@@ -6,6 +6,22 @@ Todos.Todo = SC.Object.extend({
   isDone: false
 });
 
+Todos.Label = SC.Object.extend({
+  title: null,
+  isRelevant: false
+});
+
+Todos.labelsController = SC.ArrayProxy.create({
+	content: [],
+	recommendLabelsFor: function(todo){
+		var label = Todos.Label.create({ title: "label 1" });
+		this.pushObject(label);
+	},
+	clearLabels: function(){
+		this.set('content', []);
+	}
+});
+
 Todos.todosController = SC.ArrayProxy.create({
   content: [],
 
@@ -50,7 +66,19 @@ Todos.CreateTodoView = SC.TextField.extend({
     if (value) {
       Todos.todosController.createTodo(value);
       this.set('value', '');
+      Todos.labelsController.clearLabels();
     }
+  },
+  keyDown: function(evt) {
+  	
+  	var spaceKey = 32;
+  	var value = this.get('value');
+  
+    if (evt.keyCode === spaceKey) {
+    	Todos.labelsController.recommendLabelsFor(value);
+    }
+    
   }
+  
 });
 
